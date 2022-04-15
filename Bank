@@ -1,0 +1,126 @@
+package Abstract;
+import java.util.*;
+
+abstract class Bank
+{
+	String cust_name,acct_type;
+	int acct_no,sal,bal=5000,wamt,damt,ch;
+	
+	abstract void Get_info();
+	abstract void Show_info();
+}
+
+class HDFC extends Bank
+{
+	Scanner sc = new Scanner(System.in);
+	
+	public void Get_info()
+	{
+		System.out.println("Enter Your Name = ");
+		cust_name=sc.next();
+		
+		System.out.println("Enter Account Type =" );
+		acct_type=sc.next();
+		
+		System.out.println("Enter Account Number = ");
+		acct_no=sc.nextInt();
+		
+	    System.out.println("Enter Your Choice\n 1) Withdraw \n 2) Deposit");
+	    ch=sc.nextInt();
+	    
+	    if(ch==1)
+	    {
+	    	System.out.println("Enter Your Withdraw Ammount = ");
+	    	wamt=sc.nextInt();
+	    	
+	    	if(wamt>=bal)
+	    	{
+	    		System.out.println("Insuficient Balance");
+	    	}
+	    	else 
+	    	{
+	    		bal=bal-wamt;
+	    	}
+	    	
+	    }
+	    else
+	    {
+	    	System.out.println("Enter Your Deposit Ammount = ");
+	    	damt=sc.nextInt();
+	    	
+	    	bal=bal+damt;
+	    }
+	}
+		
+		public void Show_info()
+		{
+			System.out.println("Name\t\tAccount Type\t\tAccount Number\t\tbal");
+			System.out.println(cust_name+"\t\t\t"+acct_type+"\t\t\t"+acct_no+"\t\t"+bal);
+		}
+	}
+
+
+class IDFC extends Bank
+{
+	Scanner sc = new Scanner(System.in);
+	
+	public void Get_info()
+	{
+		System.out.println("Enter Your Name = ");
+		cust_name=sc.next();
+		
+		System.out.println("Enter Account Type =" );
+		acct_type=sc.next();
+		
+		System.out.println("Enter Account Number = ");
+		acct_no=sc.nextInt();
+		
+	    System.out.println("Enter Your Choice\n 1) Withdraw \n 2) Deposit");
+	    ch=sc.nextInt();
+	    
+	    if(ch==1)
+	    {
+	    	System.out.println("Enter Your Withdraw Ammount = ");
+	    	wamt=sc.nextInt();
+	    	
+	    	if(wamt>=bal)
+	    	{
+	    		System.out.println("Insuficient Balance");
+	    	}
+	    	else 
+	    	{
+	    		bal=bal-wamt;
+	    	}
+	    	
+	    }
+	    else
+	    {
+	    	System.out.println("Enter Your Deposit Ammount = ");
+	    	damt=sc.nextInt();
+	    	
+	    	bal=bal+damt;
+	    }
+	}
+		
+		public void Show_info()
+		{
+			System.out.println("Name\t\tAccount Type\t\tAccount Number\t\tbal");
+			System.out.println(cust_name+"\t\t\t"+acct_type+"\t\t"+acct_no+"\t\t\t"+bal);
+		}
+	}
+
+public class Bank_Program {
+	
+	public static void main(String[] args)
+	{
+		HDFC h = new HDFC();
+		IDFC i = new IDFC();
+		
+		h.Get_info();
+		h.Show_info();
+		i.Get_info();
+		i.Show_info();
+	}
+}
+
+
